@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - name: Tests
+        run: pytest -q
+      - name: Bandit
+        run: bandit -r app.py src -ll
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t diabetes-app .
+      - name: Smoke test
+        run: |
+          docker run -d -p 5000:5000 --name app diabetes-app
+          for i in $(seq 1 20); do curl -fs http://127.0.0.1:5000/health && exit 0; sleep 1; done
+          docker logs app; exit 1
