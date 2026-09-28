@@ -1,0 +1,10 @@
+# Exploratory notebooks and the Dash prototype only; not pinned or verified in this repo's CI
+matplotlib
+seaborn
+tensorflow
+keras-tuner
+dash
+dash-bootstrap-components
+dash-bootstrap-templates
+dash-ag-grid
+plotly

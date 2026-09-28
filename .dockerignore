@@ -1,0 +1,9 @@
+.git
+.github
+Diabetes
+Database
+JR Code
+tests
+static/NN model puctures
+*.pkl
+*.ipynb
