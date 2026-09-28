@@ -106,6 +106,3 @@ The notebooks and Dash prototype need the extra packages in `requirements-notebo
 
 Python · scikit-learn · pandas · Flask · Gunicorn · Docker · pytest · GitHub Actions · TensorFlow/Keras (exploratory) · PostgreSQL
 
-## Team
-
-Team capstone project. Contributors: [@Faraz-Tab](https://github.com/Faraz-Tab), [@jeffreymrobertson](https://github.com/jeffreymrobertson), [@kkevin1999](https://github.com/kkevin1999), and commit author `cindyliwho`.
